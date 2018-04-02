@@ -25,17 +25,33 @@
                 ctx.fill()
             }
             var painting = false
+            var lastPoint = {
+                x: undefined,
+                y: undefined
+            }
             c.onmousedown = function (aaa) {
                 painting = true
                 var x = aaa.clientX
                 var y = aaa.clientY
-                dramCircle(x, y, 5);
+                var lastPoint = {
+                    "x": x,
+                    "y": y
+                }
+                dramCircle(x, y, 1);
+
+
             }
             c.onmousemove = function (aaa) {
                 if (painting) {
                     var x = aaa.clientX
                     var y = aaa.clientY
-                    dramCircle(x, y, 5)
+                    var newPoint = {
+                        "x": x,
+                        "y": y
+                    }
+                    dramCircle(x, y, 1)
+                    dramLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
+                    lastPoint = newPoint;
                 }
 
             }

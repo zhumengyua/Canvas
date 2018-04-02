@@ -61,6 +61,15 @@
             painting = false;
 
         }
+
+        function drawLine(x1, y1, x2, y2) {
+            ctx.beginPath()
+            ctx.moveTo(3, 0)
+            ctx.lineWidth = 5
+            ctx.lineTo(200, 0)
+            ctx.stroke()
+            ctx.closePath()
+        }
     </script>
 
 </body>
