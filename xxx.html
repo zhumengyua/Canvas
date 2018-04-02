@@ -13,10 +13,10 @@
         <script>
             var c = document.getElementById("myCanvas");
             var ctx = c.getContext("2d");
-            ctx.moveTo(0, 0);
-            ctx.lineTo(200, 100);
-            ctx.lineTo(200,50)
-            ctx.stroke();
+            ctx.beginPath()
+            ctx.arc(30, 30, 10, 0,3.14)
+            ctx.fillStyle = 'red'
+            ctx.fill()
         </script>
 </body>
 
