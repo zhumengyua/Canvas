@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        body {
+            margin: 0px;
+        }
+    </style>
 </head>
 
 <body>
@@ -13,10 +18,31 @@
         <script>
             var c = document.getElementById("myCanvas");
             var ctx = c.getContext("2d");
-            ctx.beginPath()
-            ctx.arc(30, 30, 10, 0,3.14)
-            ctx.fillStyle = 'red'
-            ctx.fill()
+
+            function dramCircle(x, y, radius) {
+                ctx.beginPath()
+                ctx.arc(x, y, radius, 0, 7)
+                ctx.fill()
+            }
+            var painting = false
+            c.onmousedown = function (aaa) {
+                painting = true
+                var x = aaa.clientX
+                var y = aaa.clientY
+                dramCircle(x, y, 5);
+            }
+            c.onmousemove = function (aaa) {
+                if (painting) {
+                    var x = aaa.clientX
+                    var y = aaa.clientY
+                    dramCircle(x, y, 5)
+                }
+
+            }
+            c.onmouseup = function (aaa) {
+                painting = false;
+
+            }
         </script>
 </body>
 
