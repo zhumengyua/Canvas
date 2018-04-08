@@ -23,42 +23,85 @@ var lastPoint = {
     x: undefined,
     y: undefined
 }
-c.onmousedown = function (aaa) {
-    var x = aaa.clientX
-    var y = aaa.clientY
-    if (eraserEnabled) {
-        using = true
-        ctx.clearRect(x - 5, y - 5, 10, 10)
-    } else {
-        using = true
-        lastPoint = {
-            "x": x,
-            "y": y
-        }
-    }
-}
-c.onmousemove = function (aaa) {
-    var x = aaa.clientX
-    var y = aaa.clientY
-    if (eraserEnabled) {
-        if (using) {
+if (document.body.ontouchstart !== undefined) { //特性检测！！
+    //触屏设备
+    console.log('开始')
+    c.ontouchstart = function (aaa) {
+        var x = aaa.touches[0].clientX
+        var y = aaa.touches[0].clientY
+        if (eraserEnabled) {
+            using = true
             ctx.clearRect(x - 5, y - 5, 10, 10)
-        }
-    } else {
-        if (using) {
-            var newPoint = {
+        } else {
+            using = true
+            lastPoint = {
                 "x": x,
                 "y": y
             }
-            dramLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
-            lastPoint = newPoint;
-
         }
     }
-}
-c.onmouseup = function (aaa) {
-    using = false;
+    c.ontouchmove = function (aaa) {
+        var x = aaa.touches[0].clientX
+        var y = aaa.touches[0].clientY
+        if (eraserEnabled) {
+            if (using) {
+                ctx.clearRect(x - 5, y - 5, 10, 10)
+            }
+        } else {
+            if (using) {
+                var newPoint = {
+                    "x": x,
+                    "y": y
+                }
+                dramLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
+                lastPoint = newPoint;
 
+            }
+        }
+    }
+
+    c.ontouchend = function (aaa) {
+        using = false;
+    }
+} else {
+    //非触屏设备
+    c.onmousedown = function (aaa) {
+        var x = aaa.clientX
+        var y = aaa.clientY
+        if (eraserEnabled) {
+            using = true
+            ctx.clearRect(x - 5, y - 5, 10, 10)
+        } else {
+            using = true
+            lastPoint = {
+                "x": x,
+                "y": y
+            }
+        }
+    }
+    c.onmousemove = function (aaa) {
+        var x = aaa.clientX
+        var y = aaa.clientY
+        if (eraserEnabled) {
+            if (using) {
+                ctx.clearRect(x - 5, y - 5, 10, 10)
+            }
+        } else {
+            if (using) {
+                var newPoint = {
+                    "x": x,
+                    "y": y
+                }
+                dramLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
+                lastPoint = newPoint;
+
+            }
+        }
+    }
+    c.onmouseup = function (aaa) {
+        using = false;
+
+    }
 }
 
 function dramLine(x1, y1, x2, y2) {
