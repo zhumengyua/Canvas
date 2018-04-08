@@ -70,7 +70,7 @@ if (document.body.ontouchstart !== undefined) { //特性检测！！
         var y = aaa.clientY
         if (eraserEnabled) {
             using = true
-            ctx.clearRect(x - 5, y - 5, 10, 10)
+            ctx.clearRect(x, y, 10, 10)
         } else {
             using = true
             lastPoint = {
@@ -84,7 +84,7 @@ if (document.body.ontouchstart !== undefined) { //特性检测！！
         var y = aaa.clientY
         if (eraserEnabled) {
             if (using) {
-                ctx.clearRect(x - 5, y - 5, 10, 10)
+                ctx.clearRect(x, y, 20, 20)//橡皮擦实现
             }
         } else {
             if (using) {
@@ -94,13 +94,11 @@ if (document.body.ontouchstart !== undefined) { //特性检测！！
                 }
                 dramLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
                 lastPoint = newPoint;
-
             }
         }
     }
     c.onmouseup = function (aaa) {
         using = false;
-
     }
 }
 
@@ -113,7 +111,14 @@ function dramLine(x1, y1, x2, y2) {
     ctx.closePath()
 }
 //橡皮擦
-var eraserEnabled = false
+var eraserEnabled = false //橡皮擦是否打开
+pen.onclick = function () {
+    eraserEnabled = false
+    pen.classList.add('active')
+    eraser.classList.remove('active')
+}
 eraser.onclick = function () {
-    eraserEnabled = !eraserEnabled
+    eraserEnabled = true
+    eraser.classList.add('active')
+    pen.classList.remove('active')
 }

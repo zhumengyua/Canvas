@@ -1,8 +1,64 @@
 body {
     margin: 0px;
 }
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+#xxx {
+    display: block;
+}
+
 button {
     position: fixed;
     bottom: 0;
     left: 0;
+}
+
+.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+.actions {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px;
+}
+
+.actions svg {
+    width: 2em;
+    height: 2em;
+    margin-left: 25px;
+}
+
+.actions svg.active {
+    fill: red;
+    transform: scale(1.2);
+    transition: all 0.6s;
+}
+
+.colors {
+    position: fixed;
+    top: 50px;
+    left: 30px;
+    border: 1px solid red;
+}
+
+.colors>li {
+    width: 20px;
+    height: 20px;
+    border: 1px solid red;
+    margin: 10px 0;
 }

@@ -7,14 +7,30 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no" />
 
-    <title>Document</title>
+    <title>我的滑板</title>
     <link rel="stylesheet" href="css/main.css" type="text/css" />
 </head>
 
 <body>
-    <button id=eraser>橡皮擦xxxxxxxxx</button>
-    <canvas id="myCanvas" style="border:1px solid #d3d3d3;">
+
+    <canvas id="myCanvas" style="width:300;height:300"></canvas>
+    <div id=actions class="actions">
+        <svg id=pen class="icon active">
+            <use xlink:href="#icon-pen"></use>
+        </svg>
+        <svg id=eraser class="icon">
+            <use xlink:href="#icon-eraser"></use>
+        </svg>
+        <ol class="colors">
+            <li class="red"></li>
+            <li class="green"></li>
+            <li class="blue"></li>
+        </ol>
+    </div>
+
+
 </body>
 <script type="text/javascript" src="js/main.js"></script>
+<script src="//at.alicdn.com/t/font_619640_xwitb1se9bv5cdi.js"></script>
 
 </html>
