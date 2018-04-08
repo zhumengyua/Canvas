@@ -53,7 +53,6 @@ button {
     position: fixed;
     top: 50px;
     left: 30px;
-    border: 1px solid red;
 }
 
 .colors>li {
@@ -61,4 +60,16 @@ button {
     height: 20px;
     border: 1px solid red;
     margin: 10px 0;
+}
+
+.colors>.red {
+    background-color: red;
+}
+
+.colors>.green {
+    background-color: green;
+}
+
+.colors>.blue {
+    background-color: blue;
 }
