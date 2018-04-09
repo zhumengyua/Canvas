@@ -165,3 +165,8 @@ eraser.onclick = function () {
     pen.classList.remove('active')
     span.style.display = 'none'
 }
+//清空
+empty.onclick = function () {
+    location.reload();
+
+}
