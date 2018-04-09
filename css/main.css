@@ -1,5 +1,7 @@
 body {
     margin: 0px;
+    overflow: hidden;
+    /*禁用滚动条*/
 }
 
 * {
@@ -43,7 +45,7 @@ button {
     margin-left: 25px;
 }
 
-.actions svg.active {
+.actions .active {
     fill: red;
     transform: scale(1.2);
     transition: all 0.6s;
@@ -58,8 +60,9 @@ button {
 .colors>li {
     width: 20px;
     height: 20px;
-    border: 1px solid red;
     margin: 10px 0;
+    border-radius: 20px;
+    box-shadow: 1px 1px grey;
 }
 
 .colors>.red {
@@ -72,4 +75,8 @@ button {
 
 .colors>.blue {
     background-color: blue;
+}
+
+.colors>.black {
+    background-color: black;
 }

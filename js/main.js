@@ -84,7 +84,7 @@ if (document.body.ontouchstart !== undefined) { //特性检测！！
         var y = aaa.clientY
         if (eraserEnabled) {
             if (using) {
-                ctx.clearRect(x, y, 20, 20)//橡皮擦实现
+                ctx.clearRect(x, y, 20, 20) //橡皮擦实现
             }
         } else {
             if (using) {
@@ -109,6 +109,37 @@ function dramLine(x1, y1, x2, y2) {
     ctx.lineTo(x2, y2) //终点
     ctx.stroke()
     ctx.closePath()
+
+}
+
+//颜色选择
+green.onclick = function () {
+    ctx.strokeStyle = 'green'
+    green.classList.add('active')
+    red.classList.remove('active')
+    blue.classList.remove('active')
+    black.classList.remove('active')
+}
+red.onclick = function () {
+    ctx.strokeStyle = 'red'
+    green.classList.remove('active')
+    red.classList.add('active')
+    blue.classList.remove('active')
+    black.classList.remove('active')
+}
+blue.onclick = function () {
+    ctx.strokeStyle = 'blue'
+    green.classList.remove('active')
+    red.classList.remove('active')
+    blue.classList.add('active')
+    black.classList.remove('active')
+}
+black.onclick = function () {
+    ctx.strokeStyle = 'black'
+    green.classList.remove('active')
+    red.classList.remove('active')
+    blue.classList.remove('active')
+    black.classList.add('active')
 }
 //橡皮擦
 var eraserEnabled = false //橡皮擦是否打开
