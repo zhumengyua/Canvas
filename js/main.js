@@ -102,15 +102,24 @@ if (document.body.ontouchstart !== undefined) { //特性检测！！
     }
 }
 
+var x3 = 6
+//笔尖加减
+add.onclick = function () {
+    x3 = x3 + 1;
+}
+subtraction.onclick = function () {
+    x3 = x3 - 1;
+}
+
 function dramLine(x1, y1, x2, y2) {
     ctx.beginPath()
     ctx.moveTo(x1, y1) //起点    
-    ctx.lineWidth = 5
+    ctx.lineWidth = x3
     ctx.lineTo(x2, y2) //终点
     ctx.stroke()
     ctx.closePath()
-
 }
+
 
 //颜色选择
 green.onclick = function () {
@@ -147,9 +156,12 @@ pen.onclick = function () {
     eraserEnabled = false
     pen.classList.add('active')
     eraser.classList.remove('active')
+    span.style.display = 'inline'
+
 }
 eraser.onclick = function () {
     eraserEnabled = true
     eraser.classList.add('active')
     pen.classList.remove('active')
+    span.style.display = 'none'
 }
