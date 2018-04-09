@@ -167,6 +167,15 @@ eraser.onclick = function () {
 }
 //清空
 empty.onclick = function () {
-    location.reload();
-
+    ctx.clearRect(0, 0, c.width, c.height)
+}
+//保存
+save.onclick = function () {
+    var url = c.toDataURL("image/png")
+    var a = document.createElement('a')
+    document.body.appendChild(a)
+    a.href = url
+    a.download = 'name'
+    a.target = '_blank'
+    a.click()
 }
