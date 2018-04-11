@@ -1,5 +1,5 @@
 /*document.body.ontouchstart = function (eee) {
-    eee.preventDefault() //阻止手机滚动
+    eee.preventDefault() //阻止手机滚动ss 
 }*/
 var c = document.getElementById("myCanvas");
 RepeterW()
